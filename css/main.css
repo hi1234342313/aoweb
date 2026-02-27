@@ -494,3 +494,34 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.04); 
 .hero-proj-info{gap:16px;}
 .hero-proj-arrow{display:inline-flex;flex:0 0 44px;min-width:44px;width:44px;height:44px;padding:0;line-height:1;border-radius:12px;}
 .hero-proj-arrow:hover{filter:brightness(1.05);}
+/* ===== Mobile Header Tightening Fix ===== */
+@media (max-width: 480px) {
+
+  .nav-inner {
+    height: 64px;
+    padding: 0 12px;
+  }
+
+  .brand {
+    font-size: 16px;
+    gap: 8px;
+    line-height: 1.05;
+  }
+
+  .brand-mark {
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    font-size: 9px;
+  }
+
+  .nav-cta {
+    gap: 6px;
+  }
+
+  .nav-cta .btn.primary {
+    padding: 8px 12px;
+    font-size: 10px;
+    letter-spacing: .08em;
+  }
+}

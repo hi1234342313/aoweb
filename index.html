@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="css/main.css"/>
+<link rel="stylesheet" href="css/main.css?v=5"/>
 <!-- EmailJS SDK -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
@@ -48,7 +48,11 @@
 <!-- Mobile Sheet -->
 <div class="sheet" id="sheet" aria-hidden="true" role="dialog">
   <div class="sheet-panel">
-    <button class="sheet-close" id="sheetClose" aria-label="Close menu">✕</button>
+    <div class="sheet-header">
+      <span class="sheet-brand">AO Web Solutions</span>
+      <button class="sheet-close" id="sheetClose" aria-label="Close menu">✕</button>
+    </div>
+    <div class="sheet-accent-bar"></div>
     <nav class="sheet-links">
       <a href="#capabilities" onclick="closeSheet()">Capabilities</a>
       <a href="#process" onclick="closeSheet()">Process</a>
@@ -58,6 +62,9 @@
       <a href="#contact" onclick="closeSheet()">Contact</a>
       <a href="pages/cart.html">Cart</a>
     </nav>
+    <div class="sheet-footer">
+      <a href="#contact" class="btn primary" onclick="closeSheet()">Start a Project</a>
+    </div>
   </div>
 </div>
 

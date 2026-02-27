@@ -12,10 +12,10 @@
 </head>
 <body>
 
-<div class="progress"></div>
+<div class="progress" id="progress"></div>
 
 <!-- NAV -->
-<nav id="nav" class="scrolled">
+<nav id="nav">
   <div class="container">
     <div class="nav-inner">
       <a href="../index.html" class="brand">
@@ -26,14 +26,17 @@
         <li><a href="../index.html#capabilities">Capabilities</a></li>
         <li><a href="../index.html#process">Process</a></li>
         <li><a href="../index.html#pricing">Pricing</a></li>
+        <li><a href="../index.html#why">Why Us</a></li>
         <li><a href="../index.html#work">Work</a></li>
+        <li><a href="../index.html#faq">FAQ</a></li>
       </ul>
       <div class="nav-cta">
+        <a href="../index.html#pricing" class="btn ghost">View Packages</a>
         <a href="cart.html" class="cart-btn" aria-label="View cart">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           <span class="cart-count">0</span>
         </a>
-        <a href="../index.html#contact" class="btn primary">Contact</a>
+        <a href="../index.html#contact" class="btn primary">Get in Touch</a>
         <button class="hamburger" id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -43,11 +46,15 @@
 <!-- Mobile Sheet -->
 <div class="sheet" id="sheet" aria-hidden="true" role="dialog">
   <div class="sheet-panel">
-    <button class="sheet-close" id="sheetClose" aria-label="Close menu">✕</button>
+    <button type="button" class="sheet-close" id="sheetClose" aria-label="Close menu">✕</button>
     <nav class="sheet-links">
-      <a href="../index.html">Home</a>
-      <a href="../index.html#pricing">Packages</a>
-      <a href="../index.html#contact">Contact</a>
+      <a href="../index.html#capabilities" onclick="closeSheet()">Capabilities</a>
+      <a href="../index.html#process" onclick="closeSheet()">Process</a>
+      <a href="../index.html#pricing" onclick="closeSheet()">Pricing</a>
+      <a href="../index.html#work" onclick="closeSheet()">Work</a>
+      <a href="../index.html#faq" onclick="closeSheet()">FAQ</a>
+      <a href="../index.html#contact" onclick="closeSheet()">Contact</a>
+      <a href="cart.html" onclick="closeSheet()">Cart</a>
     </nav>
   </div>
 </div>

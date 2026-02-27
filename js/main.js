@@ -47,11 +47,56 @@ if (revealEls.length) {
 const menuBtn  = document.getElementById('menuBtn');
 const sheet    = document.getElementById('sheet');
 const sheetClose = document.getElementById('sheetClose');
-function closeSheet() { if (sheet) { sheet.classList.remove('open'); sheet.setAttribute('aria-hidden', 'true'); } }
-if (menuBtn)   menuBtn.addEventListener('click', e => { e.stopPropagation(); const open = !sheet.classList.contains('open'); sheet.classList.toggle('open', open); sheet.setAttribute('aria-hidden', String(!open)); });
+let _scrollLockY = 0;
+function lockScroll() {
+  _scrollLockY = window.scrollY || 0;
+  document.documentElement.classList.add('no-scroll');
+  document.body.classList.add('no-scroll');
+  // iOS-friendly lock
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${_scrollLockY}px`;
+  document.body.style.left = '0';
+  document.body.style.right = '0';
+  document.body.style.width = '100%';
+}
+function unlockScroll() {
+  document.documentElement.classList.remove('no-scroll');
+  document.body.classList.remove('no-scroll');
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.left = '';
+  document.body.style.right = '';
+  document.body.style.width = '';
+  window.scrollTo(0, _scrollLockY || 0);
+}
+
+function openSheet() {
+  if (!sheet) return;
+  sheet.classList.add('open');
+  sheet.setAttribute('aria-hidden', 'false');
+  lockScroll();
+}
+function closeSheet() {
+  if (!sheet) return;
+  sheet.classList.remove('open');
+  sheet.setAttribute('aria-hidden', 'true');
+  unlockScroll();
+}
+
+// Expose for inline onclick handlers in HTML
+window.closeSheet = closeSheet;
+
+if (menuBtn) {
+  menuBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!sheet) return;
+    sheet.classList.contains('open') ? closeSheet() : openSheet();
+  });
+}
 if (sheetClose) sheetClose.addEventListener('click', closeSheet);
-if (sheet)     sheet.addEventListener('click', e => { if (e.target === sheet) closeSheet(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
+if (sheet) sheet.addEventListener('click', (e) => { if (e.target === sheet) closeSheet(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSheet(); });
 
 /* ============ CAPABILITIES SCROLL ACTIVATION ============ */
 const capItems = document.querySelectorAll('.cap-item');

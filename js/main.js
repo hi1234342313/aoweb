@@ -94,7 +94,7 @@ if (menuBtn) {
     sheet.classList.contains('open') ? closeSheet() : openSheet();
   });
 }
-if (sheetClose) sheetClose.addEventListener('click', closeSheet);
+if (sheetClose) sheetClose.addEventListener('click', (e) => { e.stopPropagation(); closeSheet(); });
 if (sheet) sheet.addEventListener('click', (e) => { if (e.target === sheet) closeSheet(); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeSheet(); });
 

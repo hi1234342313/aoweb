@@ -113,13 +113,46 @@ border-bottom-color: var(--border);
 /* ============ MOBILE NAV ============ */
 .hamburger { display: none; width: 40px; height: 40px; border: 1.5px solid var(--border2); align-items: center; justify-content: center; flex-direction: column; gap: 5px; cursor: pointer; background: transparent; }
 .hamburger span { display: block; width: 18px; height: 1.5px; background: var(--ink); transition: all .2s; }
-.sheet { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 300; display: none; }
-.sheet.open { display: block; }
-.sheet-panel { position: absolute; right: 0; top: 0; height: 100%; width: min(85vw, 340px); background: var(--paper); border-left: 1px solid var(--border); padding: 24px; box-shadow: var(--shadow-lg); }
+.sheet {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 300;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+}
+.sheet.open { opacity: 1; pointer-events: auto; }
+.sheet-panel {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100dvh;
+  width: min(88vw, 360px);
+  background: var(--paper);
+  border-left: 1px solid var(--border);
+  padding: 18px 18px calc(18px + env(safe-area-inset-bottom));
+  box-shadow: var(--shadow-lg);
+  transform: translateX(110%);
+  transition: transform .3s cubic-bezier(.2,.9,.2,1);
+  display: flex;
+  flex-direction: column;
+}
+.sheet.open .sheet-panel { transform: translateX(0); }
 .sheet-close { width: 40px; height: 40px; border: 1.5px solid var(--border2); background: none; cursor: pointer; font-size: 18px; color: var(--ink); display: flex; align-items: center; justify-content: center; margin-left: auto; }
-.sheet-links { margin-top: 40px; display: flex; flex-direction: column; }
-.sheet-links a { display: block; padding: 18px 0; border-bottom: 1px solid var(--border); font-size: 17px; color: var(--ink2); transition: color .2s; }
+.sheet-links { margin-top: 18px; display: flex; flex-direction: column; }
+.sheet-links a {
+  display: block;
+  padding: 16px 6px;
+  border-bottom: 1px solid var(--border);
+  font-size: 17px;
+  color: var(--ink2);
+  transition: color .2s, background .2s;
+}
 .sheet-links a:hover { color: var(--accent); }
+
+/* When the mobile menu is open, prevent background scrolling */
+html.no-scroll, body.no-scroll { overflow: hidden; }
 
 /* ============ CART ICON ============ */
 .cart-btn { position: relative; width: 40px; height: 40px; border: 1.5px solid var(--border2); display: flex; align-items: center; justify-content: center; cursor: pointer; background: transparent; color: var(--ink); transition: all .2s; }
@@ -494,6 +527,7 @@ footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.04); 
 .hero-proj-info{gap:16px;}
 .hero-proj-arrow{display:inline-flex;flex:0 0 44px;min-width:44px;width:44px;height:44px;padding:0;line-height:1;border-radius:12px;}
 .hero-proj-arrow:hover{filter:brightness(1.05);}
+
 /* ===== Mobile Header Tightening Fix ===== */
 @media (max-width: 480px) {
 

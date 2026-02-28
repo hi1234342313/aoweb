@@ -46,7 +46,11 @@
 <!-- Mobile Sheet -->
 <div class="sheet" id="sheet" aria-hidden="true" role="dialog">
   <div class="sheet-panel">
-    <button type="button" class="sheet-close" id="sheetClose" aria-label="Close menu">✕</button>
+    <div class="sheet-header">
+      <span class="sheet-brand">AO Web Solutions</span>
+      <button type="button" class="sheet-close" id="sheetClose" aria-label="Close menu">✕</button>
+    </div>
+    <div class="sheet-accent-bar"></div>
     <nav class="sheet-links">
       <a href="../index.html#capabilities" onclick="closeSheet()">Capabilities</a>
       <a href="../index.html#process" onclick="closeSheet()">Process</a>
@@ -56,6 +60,9 @@
       <a href="../index.html#contact" onclick="closeSheet()">Contact</a>
       <a href="cart.html" onclick="closeSheet()">Cart</a>
     </nav>
+    <div class="sheet-footer">
+      <a href="../index.html#contact" class="btn primary" onclick="closeSheet()">Start a Project</a>
+    </div>
   </div>
 </div>
 

@@ -47,27 +47,13 @@ if (revealEls.length) {
 const menuBtn  = document.getElementById('menuBtn');
 const sheet    = document.getElementById('sheet');
 const sheetClose = document.getElementById('sheetClose');
-let _scrollLockY = 0;
 function lockScroll() {
-  _scrollLockY = window.scrollY || 0;
   document.documentElement.classList.add('no-scroll');
   document.body.classList.add('no-scroll');
-  // iOS-friendly lock
-  document.body.style.position = 'fixed';
-  document.body.style.top = `-${_scrollLockY}px`;
-  document.body.style.left = '0';
-  document.body.style.right = '0';
-  document.body.style.width = '100%';
 }
 function unlockScroll() {
   document.documentElement.classList.remove('no-scroll');
   document.body.classList.remove('no-scroll');
-  document.body.style.position = '';
-  document.body.style.top = '';
-  document.body.style.left = '';
-  document.body.style.right = '';
-  document.body.style.width = '';
-  window.scrollTo(0, _scrollLockY || 0);
 }
 
 function openSheet() {

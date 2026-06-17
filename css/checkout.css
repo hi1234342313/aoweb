@@ -2,7 +2,7 @@
    AO WEB SOLUTIONS — CHECKOUT / CART STYLES
    ============================================================ */
 
-.checkout-page { min-height: 100vh; padding-top: 72px; background: var(--paper); }
+.checkout-page { min-height: 100vh; padding-top: 72px; background: var(--paper); } 
 .checkout-hero { background: var(--paper2); padding: 64px 0 48px; border-bottom: 1px solid var(--border); }
 .checkout-hero .back-link { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink3); display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; transition: color .2s; }
 .checkout-hero .back-link:hover { color: var(--ink); }
